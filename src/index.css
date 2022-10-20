@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -13,11 +12,11 @@ code {
 }
 
 img {
-  width: 45px;
+  width: 60px;
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 45px;
 }
 
 ul {
@@ -34,10 +33,30 @@ a {
   margin: 20px 0;
 }
 
-.weatherData {
-  font-size: 12px;
+.temperature {
+  text-align: right;
 }
 
+.degrees {
+  text-align: left;
+}
 .weatherDataIndex {
-  font-size: 15px;
+  font-size: 14px;
+}
+
+.cityBlock {
+  margin: 20px 0;
+}
+
+footer {
+  font-size: 12px;
+  margin: 10px 40px;
+}
+
+.container {
+  margin: 30px;
+  padding: 25px;
+  max-width: 60%;
+  border: 1px rgb(220, 220, 220) solid;
+  border-radius: 8px;
 }
