@@ -5,11 +5,13 @@ import img from "./brightness-high.svg";
 export default function Weather() {
   const [ready, setReady] = useState(null);
   let [temperature, setTemperature] = useState(null);
+  let [description, setDescription] = useState("");
   let city = "Protsiv";
 
   function handleResponse(response) {
     console.log(response.data);
     setTemperature(Math.round(response.data.temperature.current));
+    setDescription(response.data.condition.description);
     setReady(true);
   }
 
@@ -36,7 +38,7 @@ export default function Weather() {
           </div>
           <ul className="weatherData">
             <li>Tuesday, 14.00</li>
-            <li>Partly Cloudy</li>
+            <li>{description}</li>
           </ul>
         </div>
         <div className="row">
