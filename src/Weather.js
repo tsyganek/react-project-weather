@@ -6,12 +6,14 @@ export default function Weather() {
   const [ready, setReady] = useState(null);
   let [temperature, setTemperature] = useState(null);
   let [description, setDescription] = useState("");
+  let [feelsLike, setFeelsLike] = useState(null);
   let city = "Protsiv";
 
   function handleResponse(response) {
     console.log(response.data);
     setTemperature(Math.round(response.data.temperature.current));
     setDescription(response.data.condition.description);
+    setFeelsLike(Math.round(response.data.temperature.feels_like));
     setReady(true);
   }
 
@@ -53,7 +55,7 @@ export default function Weather() {
           </div>
           <div className="col-4">
             <ul className="weatherDataIndex">
-              <li>Precipitation: 0</li>
+              <li>Feels like: {feelsLike}</li>
               <li>Humidity: 34%</li>
               <li>Wind: 19 km/h</li>
             </ul>
