@@ -2,28 +2,24 @@ import React, { useState } from "react";
 import axios from "axios";
 import img from "./brightness-high.svg";
 
-export default function Weather() {
-  const [ready, setReady] = useState(null);
-  let [temperature, setTemperature] = useState(null);
-  let [description, setDescription] = useState("");
-  let [feelsLike, setFeelsLike] = useState(null);
-  let [humidity, setHumidity] = useState(null);
-  let [wind, setWind] = useState(null);
-  let [date, setDate] = useState("");
-  let city = "Kyiv";
+export default function Weather(props) {
+  let [weather, setWeather] = useState({ ready: false });
 
   function handleResponse(response) {
     console.log(response.data);
-    setTemperature(Math.round(response.data.temperature.current));
-    setDescription(response.data.condition.description);
-    setFeelsLike(Math.round(response.data.temperature.feels_like));
-    setHumidity(response.data.temperature.humidity);
-    setWind(response.data.wind.speed);
-    setDate(Date(response.data.time));
-    setReady(true);
+    setWeather({
+      ready: true,
+      temperature: Math.round(response.data.temperature.current),
+      description: response.data.condition.description,
+      feelsLike: Math.round(response.data.temperature.feels_like),
+      humidity: response.data.temperature.humidity,
+      wind: response.data.wind.speed,
+      date: Date(response.data.time),
+      city: response.data.city,
+    });
   }
 
-  if (ready) {
+  if (weather.ready) {
     return (
       <div className="container">
         <div className="formContainer">
@@ -42,11 +38,11 @@ export default function Weather() {
         </div>
         <div className="row cityBlock">
           <div>
-            <h1>{city}</h1>
+            <h1>{weather.city}</h1>
           </div>
           <ul className="weatherData">
-            <li>{date}</li>
-            <li>{description}</li>
+            <li>{weather.date}</li>
+            <li>{weather.description}</li>
           </ul>
         </div>
         <div className="row">
@@ -54,16 +50,16 @@ export default function Weather() {
             <img src={img} alt="sunny" />
           </div>
           <div className="col-1 temperature">
-            <h2>{temperature}</h2>
+            <h2>{weather.temperature}</h2>
           </div>
           <div className="col-2 degrees">
             <a href="#">°C</a> | <a href="#">°F</a>
           </div>
           <div className="col-4">
             <ul className="weatherDataIndex">
-              <li>Feels like: {feelsLike}°</li>
-              <li>Humidity: {humidity}%</li>
-              <li>Wind: {wind}km/h</li>
+              <li>Feels like: {weather.feelsLike}°</li>
+              <li>Humidity: {weather.humidity}%</li>
+              <li>Wind: {weather.wind}km/h</li>
             </ul>
           </div>
         </div>
@@ -71,7 +67,7 @@ export default function Weather() {
     );
   } else {
     let apiKey = `50df61ta7co68388b9f4195d29abb711`;
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
     return <p>Loading...</p>;
   }
