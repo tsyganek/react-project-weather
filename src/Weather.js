@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import img from "./brightness-high.svg";
+import FriendlyDate from "./FriendlyDate.js";
 
 export default function Weather(props) {
   let [weather, setWeather] = useState({ ready: false });
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeather({
       ready: true,
       temperature: Math.round(response.data.temperature.current),
@@ -14,7 +14,7 @@ export default function Weather(props) {
       feelsLike: Math.round(response.data.temperature.feels_like),
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      date: Date(response.data.time),
+      date: new Date(response.data.time * 1000),
       city: response.data.city,
     });
   }
@@ -25,10 +25,10 @@ export default function Weather(props) {
         <div className="formContainer">
           <form className="form">
             <div className="row">
-              <div className="col-6">
+              <div className="col-9">
                 <input className="searchField form-control" type="text"></input>
               </div>
-              <div className="col-4">
+              <div className="col-2">
                 <button type="submit" class="btn btn-primary">
                   Submit
                 </button>
@@ -41,7 +41,11 @@ export default function Weather(props) {
             <h1>{weather.city}</h1>
           </div>
           <ul className="weatherData">
-            <li>{weather.date}</li>
+            <li>
+              <b>
+                <FriendlyDate date={weather.date} />
+              </b>
+            </li>
             <li>{weather.description}</li>
           </ul>
         </div>
