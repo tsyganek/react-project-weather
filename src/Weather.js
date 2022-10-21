@@ -7,13 +7,15 @@ export default function Weather() {
   let [temperature, setTemperature] = useState(null);
   let [description, setDescription] = useState("");
   let [feelsLike, setFeelsLike] = useState(null);
-  let city = "Protsiv";
+  let [humidity, setHumidity] = useState(null);
+  let city = "Kyiv";
 
   function handleResponse(response) {
     console.log(response.data);
     setTemperature(Math.round(response.data.temperature.current));
     setDescription(response.data.condition.description);
     setFeelsLike(Math.round(response.data.temperature.feels_like));
+    setHumidity(response.data.temperature.humidity);
     setReady(true);
   }
 
@@ -56,7 +58,7 @@ export default function Weather() {
           <div className="col-4">
             <ul className="weatherDataIndex">
               <li>Feels like: {feelsLike}</li>
-              <li>Humidity: 34%</li>
+              <li>Humidity: {humidity}%</li>
               <li>Wind: 19 km/h</li>
             </ul>
           </div>
