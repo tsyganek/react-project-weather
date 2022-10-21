@@ -8,6 +8,8 @@ export default function Weather() {
   let [description, setDescription] = useState("");
   let [feelsLike, setFeelsLike] = useState(null);
   let [humidity, setHumidity] = useState(null);
+  let [wind, setWind] = useState(null);
+  let [date, setDate] = useState("");
   let city = "Kyiv";
 
   function handleResponse(response) {
@@ -16,6 +18,8 @@ export default function Weather() {
     setDescription(response.data.condition.description);
     setFeelsLike(Math.round(response.data.temperature.feels_like));
     setHumidity(response.data.temperature.humidity);
+    setWind(response.data.wind.speed);
+    setDate(Date(response.data.time));
     setReady(true);
   }
 
@@ -41,7 +45,7 @@ export default function Weather() {
             <h1>{city}</h1>
           </div>
           <ul className="weatherData">
-            <li>Tuesday, 14.00</li>
+            <li>{date}</li>
             <li>{description}</li>
           </ul>
         </div>
@@ -57,9 +61,9 @@ export default function Weather() {
           </div>
           <div className="col-4">
             <ul className="weatherDataIndex">
-              <li>Feels like: {feelsLike}</li>
+              <li>Feels like: {feelsLike}°</li>
               <li>Humidity: {humidity}%</li>
-              <li>Wind: 19 km/h</li>
+              <li>Wind: {wind}km/h</li>
             </ul>
           </div>
         </div>
