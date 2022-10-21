@@ -2,13 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
-import Text from "./testFile.js";
+import Weather from "./Weather.js";
+import Footer from "./Footer.js";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Text />
+    <Weather />
+    <Footer />
   </React.StrictMode>
 );
 

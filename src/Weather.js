@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import img from "./brightness-high.svg";
 
-export default function Text() {
-  return (
-    <div>
+export default function Weather() {
+  const [ready, setReady] = useState(null);
+  let [temperature, setTemperature] = useState(null);
+  let city = "Protsiv";
+
+  function handleResponse(response) {
+    console.log(response.data);
+    setTemperature(Math.round(response.data.temperature.current));
+    setReady(true);
+  }
+
+  if (ready) {
+    return (
       <div className="container">
         <div className="formContainer">
           <form className="form">
             <div className="row">
               <div className="col-6">
-                <input
-                  className="searchField form-control"
-                  type="text"
-                  value="type your city"
-                  autoFocus="on"
-                ></input>
+                <input className="searchField form-control" type="text"></input>
               </div>
               <div className="col-4">
                 <button type="submit" class="btn btn-primary">
@@ -26,7 +32,7 @@ export default function Text() {
         </div>
         <div className="row cityBlock">
           <div>
-            <h1>Kyiv</h1>
+            <h1>{city}</h1>
           </div>
           <ul className="weatherData">
             <li>Tuesday, 14.00</li>
@@ -38,7 +44,7 @@ export default function Text() {
             <img src={img} alt="sunny" />
           </div>
           <div className="col-1 temperature">
-            <h2>22</h2>
+            <h2>{temperature}</h2>
           </div>
           <div className="col-2 degrees">
             <a href="#">°C</a> | <a href="#">°F</a>
@@ -52,15 +58,11 @@ export default function Text() {
           </div>
         </div>
       </div>
-      <footer>
-        The project is made by{" "}
-        <a href="https://www.linkedin.com/in/kateryna-tsygankova-15a429244/">
-          Kateryna Tsygankova
-        </a>
-        , open-sourced on{" "}
-        <a href="https://github.com/tsyganek/react-project-weather">GitHub</a>{" "}
-        and hosted on Netlify
-      </footer>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = `50df61ta7co68388b9f4195d29abb711`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+    return <p>Loading...</p>;
+  }
 }
