@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> c3ac865e0297e362d1db0d536cb7e2edd64192d2
 import img from "./brightness-high.svg";
 import FriendlyDate from "./FriendlyDate.js";
 
@@ -11,9 +15,13 @@ export default function WeatherInfo(props) {
         </div>
         <ul className="weatherData">
           <li>
+<<<<<<< HEAD
             <b>
               <FriendlyDate date={props.data.date} />
             </b>
+=======
+            <b></b>
+>>>>>>> c3ac865e0297e362d1db0d536cb7e2edd64192d2
           </li>
           <li>{props.data.description}</li>
         </ul>
