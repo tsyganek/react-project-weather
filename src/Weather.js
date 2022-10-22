@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import img from "./brightness-high.svg";
 import FriendlyDate from "./FriendlyDate.js";
+import WeatherInfo from "./WeatherInfo.js";
 
 export default function Weather(props) {
   let [weather, setWeather] = useState({ ready: false });
@@ -36,37 +37,7 @@ export default function Weather(props) {
             </div>
           </form>
         </div>
-        <div className="row cityBlock">
-          <div>
-            <h1>{weather.city}</h1>
-          </div>
-          <ul className="weatherData">
-            <li>
-              <b>
-                <FriendlyDate date={weather.date} />
-              </b>
-            </li>
-            <li>{weather.description}</li>
-          </ul>
-        </div>
-        <div className="row">
-          <div className="col-2">
-            <img src={img} alt="sunny" />
-          </div>
-          <div className="col-1 temperature">
-            <h2>{weather.temperature}</h2>
-          </div>
-          <div className="col-2 degrees">
-            <a href="#">°C</a> | <a href="#">°F</a>
-          </div>
-          <div className="col-4">
-            <ul className="weatherDataIndex">
-              <li>Feels like: {weather.feelsLike}°</li>
-              <li>Humidity: {weather.humidity}%</li>
-              <li>Wind: {weather.wind}km/h</li>
-            </ul>
-          </div>
-        </div>
+        <WeatherInfo data={weather} />
       </div>
     );
   } else {
