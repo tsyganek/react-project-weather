@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import img from "./brightness-high.svg";
-import FriendlyDate from "./FriendlyDate.js";
 import WeatherInfo from "./WeatherInfo.js";
+import ReactAnimatedWeather from "react-animated-weather";
 
 export default function Weather(props) {
   let [weather, setWeather] = useState({ ready: false });
@@ -19,8 +18,7 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       date: new Date(response.data.time * 1000),
       city: response.data.city,
-      iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
-      altText: response.data.condition.icon,
+      icon: response.data.condition.icon,
     });
   }
 

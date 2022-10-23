@@ -1,6 +1,6 @@
 import React from "react";
-import img from "./brightness-high.svg";
 import FriendlyDate from "./FriendlyDate.js";
+import WeatherIcon from "./WeatherIcon.js";
 
 export default function WeatherInfo(props) {
   return (
@@ -19,8 +19,8 @@ export default function WeatherInfo(props) {
         </ul>
       </div>
       <div className="row">
-        <div className="col-2">
-          <img src={props.data.iconUrl} alt="sunny" />
+        <div className="col-2 float-right">
+          <WeatherIcon code={props.data.icon} />
         </div>
         <div className="col-1 temperature">
           <h2>{props.data.temperature}</h2>
