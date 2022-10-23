@@ -22,7 +22,7 @@ export default function Temperature(props) {
           <h2>{props.celcius}</h2>
         </div>
         <div className="col-5 float-left degrees">
-          °C |
+          °C |{" "}
           <a className="degreeLink" href="#" onClick={showFarenheit}>
             °F
           </a>
@@ -39,7 +39,7 @@ export default function Temperature(props) {
         <div className="col-5 float left degrees">
           <a className="degreeLink" href="#" onClick={showCelcius}>
             °C
-          </a>
+          </a>{" "}
           | °F
         </div>
       </div>
