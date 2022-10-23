@@ -20,9 +20,9 @@ export default function WeatherInfo(props) {
       </div>
       <div className="row">
         <div className="col-2">
-          <img src={img} alt="sunny" />
+          <img src={props.data.iconUrl} alt="sunny" />
         </div>
-        <div className="col-2 temperature">
+        <div className="col-1 temperature">
           <h2>{props.data.temperature}</h2>
         </div>
         <div className="col-2 degrees">

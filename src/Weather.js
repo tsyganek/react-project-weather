@@ -9,6 +9,7 @@ export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
+    console.log(response.data);
     setWeather({
       ready: true,
       temperature: Math.round(response.data.temperature.current),
@@ -18,6 +19,8 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       date: new Date(response.data.time * 1000),
       city: response.data.city,
+      iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+      altText: response.data.condition.icon,
     });
   }
 

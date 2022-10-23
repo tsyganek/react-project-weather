@@ -63,3 +63,11 @@ footer {
   border: 1px rgb(220, 220, 220) solid;
   border-radius: 8px;
 }
+
+.temperature {
+  text-align: left;
+}
+
+.degrees {
+  text-align: center;
+}
