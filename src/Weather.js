@@ -32,6 +32,7 @@ export default function Weather(props) {
   }
 
   function handleSubmit(event) {
+    event.preventDefault();
     search();
   }
 
@@ -60,6 +61,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
+    search();
     return <p>Loading...</p>;
   }
 }
