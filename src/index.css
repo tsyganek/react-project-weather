@@ -51,12 +51,12 @@ a {
 }
 
 footer {
-  font-size: 13px;
-  margin: 10px 40px;
+  font-size: 10px;
+  margin: 0 80px;
 }
 
 .container {
-  margin: 30px;
+  margin: 30px 30px 10px;
   padding: 25px;
   max-width: 60%;
   border: 1px rgb(220, 220, 220) solid;
@@ -76,4 +76,27 @@ footer {
 
 footer a {
   color: black;
+}
+
+.maxtemp {
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.mintemp {
+  font-size: 11px;
+}
+
+h4 {
+  font-size: 15px;
+  text-align: center;
+}
+
+.forecastImg {
+  width: 40px;
+  padding: 10px 3px;
+}
+
+.forecastContainer {
+  padding-top: 30px;
 }
