@@ -1,90 +1,18 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import cloud from "./clouddrizzle.svg";
-import "./index.css";
+import WeatherIcon from "./WeatherIcon.js";
+import "./WeatherForecast.css";
 
 export default function WeatherForecast() {
   return (
-    <div className="forecastContainer">
+    <div className="forecastWeather-container">
       <div className="row">
         <div className="col">
-          <h4>Day</h4>
-          <img className="forecastImg" src={cloud} />
-          <div className="row">
-            <div className="col-5 maxtemp">10°</div>
-            <div className="col-5 mintemp">20°</div>
-          </div>
-        </div>
-
-        <div className="col">
-          <h4>Day</h4>
-          <img className="forecastImg" src={cloud} />
-          <div className="row">
-            <div className="col-5 maxtemp">10°</div>
-            <div className="col-5 mintemp">20°</div>
-          </div>
-        </div>
-
-        <div className="col">
-          <h4>Day</h4>
-          <img className="forecastImg" src={cloud} />
-          <div className="row">
-            <div className="col-5 maxtemp">10°</div>
-            <div className="col-5 mintemp">20°</div>
-          </div>
-        </div>
-
-        <div className="col">
-          <h4>Day</h4>
-          <img className="forecastImg" src={cloud} />
-          <div className="row">
-            <div className="col-5 maxtemp">10°</div>
-            <div className="col-5 mintemp">20°</div>
-          </div>
-        </div>
-
-        <div className="col">
-          <h4>Day</h4>
-          <img className="forecastImg" src={cloud} />
-          <div className="row">
-            <div className="col-5 maxtemp">10°</div>
-            <div className="col-5 mintemp">20°</div>
-          </div>
-        </div>
-
-        <div className="col">
-          <h4>Day</h4>
-          <img className="forecastImg" src={cloud} />
-          <div className="row">
-            <div className="col-5 maxtemp">10°</div>
-            <div className="col-5 mintemp">20°</div>
-          </div>
-        </div>
-
-        <div className="col">
-          <h4>Day</h4>
-          <img className="forecastImg" src={cloud} />
-          <div className="row">
-            <div className="col-5 maxtemp">10°</div>
-            <div className="col-5 mintemp">20°</div>
-          </div>
-        </div>
-
-        <div className="col">
-          <h4>Day</h4>
-          <img className="forecastImg" src={cloud} />
-          <div className="row">
-            <div className="col-5 maxtemp">10°</div>
-            <div className="col-5 mintemp">20°</div>
-          </div>
-        </div>
-
-        <div className="col">
-          <h4>Day</h4>
-          <img className="forecastImg" src={cloud} />
-          <div className="row">
-            <div className="col-5 maxtemp">10°</div>
-            <div className="col-5 mintemp">20°</div>
+          <h4 className="forecastWeather-day">Day</h4>
+          <WeatherIcon code="clear-sky-day" size={36} />
+          <div className="WeatherForecast-temperature-max">
+            <span className="col WeatherForecast-temperature-max">10° </span>
+            <span className="col WeatherForecast-temperature-min"> 20°</span>
           </div>
         </div>
       </div>
