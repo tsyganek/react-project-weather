@@ -4,12 +4,12 @@ import "./WeatherForecast.css";
 
 export default function WeatherForecastDay(props) {
   function maxTemp() {
-    let maxTemp = Math.round(props.forecast[1].temperature.maximum);
+    let maxTemp = Math.round(props.forecast.temperature.maximum);
     return `${maxTemp}`;
   }
 
   function minTemp() {
-    let minTemp = Math.round(props.forecast[1].temperature.minimum);
+    let minTemp = Math.round(props.forecast.temperature.minimum);
     return `${minTemp}`;
   }
 
@@ -24,7 +24,7 @@ export default function WeatherForecastDay(props) {
       "Saturday",
     ];
 
-    let day = new Date(props.forecast[1].time * 1000).getDay();
+    let day = new Date(props.forecast.time * 1000).getDay();
 
     return days[day];
   }
@@ -32,7 +32,7 @@ export default function WeatherForecastDay(props) {
   return (
     <div>
       <h4 className="forecastWeather-day">{getDateDay()}</h4>
-      <WeatherIcon code={props.forecast[1].condition.icon} size={36} />
+      <WeatherIcon code={props.forecast.condition.icon} size={36} />
       <div className="WeatherForecast-temperature-max">
         <span className="col WeatherForecast-temperature-max">
           {maxTemp()}°
