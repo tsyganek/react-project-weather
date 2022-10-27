@@ -9,7 +9,7 @@ import reportWebVitals from "./reportWebVitals";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Weather defaultCity="Bakhmut" />
+    <Weather defaultCity="Stockholm" />
     <Footer />
   </React.StrictMode>
 );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import WeatherIcon from "./WeatherIcon.js";
+import WeatherForecastDay from "./WeatherForecastDay.js";
 import axios from "axios";
 import "./WeatherForecast.css";
 
@@ -19,17 +19,7 @@ export default function WeatherForecast(props) {
       <div className="forecastWeather-container">
         <div className="row">
           <div className="col">
-            <h4 className="forecastWeather-day">Day</h4>
-            <WeatherIcon code={forecast[1].condition.icon} size={36} />
-            <div className="WeatherForecast-temperature-max">
-              <span className="col WeatherForecast-temperature-max">
-                {Math.round(forecast[1].temperature.maximum)}
-              </span>
-              <span> </span>{" "}
-              <span className="col WeatherForecast-temperature-min">
-                {Math.round(forecast[1].temperature.minimum)}
-              </span>
-            </div>
+            <WeatherForecastDay forecast={forecast} />
           </div>
         </div>
       </div>
@@ -43,6 +33,6 @@ export default function WeatherForecast(props) {
 
     axios.get(apiUrl).then(handleResponse);
 
-    return null;
+    return <p>Loading forecast...</p>;
   }
 }
