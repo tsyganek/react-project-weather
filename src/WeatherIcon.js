@@ -15,6 +15,10 @@ export default function WeatherIcon(props) {
     "rain-night": "RAIN",
     "shower-rain-day": "RAIN",
     "shower-rain-day": "RAIN",
+    "snow-day": "SNOW",
+    "snow-night": "SNOW",
+    "mist-day": "FOG",
+    "mist-night": "FOG",
   };
   return (
     <ReactAnimatedWeather
