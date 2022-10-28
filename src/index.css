@@ -5,7 +5,7 @@ body {
   color: gray;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-width: 850px;
+  min-width: 880px;
 }
 
 code {
@@ -14,7 +14,7 @@ code {
 }
 
 h2 {
-  font-size: 45px;
+  font-size: 55px;
   color: black;
 }
 
@@ -38,6 +38,7 @@ a {
 
 .degrees {
   text-align: left;
+  font-size: 18px;
 }
 .weatherDataIndex {
   font-size: 14px;
@@ -82,4 +83,12 @@ h4 {
 .loading {
   text-align: center;
   margin-top: 30px;
+}
+
+.celcius {
+  padding: 3px;
+}
+
+.currentWeatherContainer {
+  padding: 10px;
 }

@@ -19,12 +19,17 @@ export default function WeatherInfo(props) {
           <li>{props.data.description}</li>
         </ul>
       </div>
-      <div className="row">
+      <div className="row currentWeatherContainer">
         <div className="col-2 float-right">
-          <WeatherIcon code={props.data.icon} size={60} />
+          <WeatherIcon code={props.data.icon} size={70} />
         </div>
         <div className="col-6">
-          <Temperature celcius={props.data.temperature} />
+          <div className="row">
+            <div className="col-7 float-right  temperature">
+              <h2>{props.data.temperature}</h2>
+            </div>
+            <div className="col-5 float-left degrees">°C</div>
+          </div>
         </div>
         <div className="col-4">
           <ul className="weatherDataIndex">
