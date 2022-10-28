@@ -5,15 +5,12 @@ body {
   color: gray;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width: 850px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-img {
-  width: 60px;
 }
 
 h2 {
@@ -52,7 +49,7 @@ a {
 
 footer {
   font-size: 10px;
-  margin: 0 80px;
+  margin: 0 40px;
 }
 
 .container {
@@ -78,25 +75,11 @@ footer a {
   color: black;
 }
 
-.maxtemp {
-  font-weight: bold;
-  font-size: 11px;
-}
-
-.mintemp {
-  font-size: 11px;
-}
-
 h4 {
   font-size: 15px;
+}
+
+.loading {
   text-align: center;
-}
-
-.forecastImg {
-  width: 40px;
-  padding: 10px 3px;
-}
-
-.forecastContainer {
-  padding-top: 30px;
+  margin-top: 30px;
 }

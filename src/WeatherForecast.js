@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import WeatherForecastDay from "./WeatherForecastDay.js";
 import axios from "axios";
 import "./WeatherForecast.css";
+import { InfinitySpin } from "react-loader-spinner";
 
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
@@ -13,7 +14,6 @@ export default function WeatherForecast(props) {
   }, [props.city]);
 
   function handleResponse(response) {
-    console.log(response.data.daily);
     setForecast(response.data.daily);
     setLoaded(true);
   }
@@ -37,12 +37,16 @@ export default function WeatherForecast(props) {
       </div>
     );
   } else {
-    console.log(props);
     let apiKey = "50df61ta7co68388b9f4195d29abb711";
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.city}&key=${apiKey}`;
 
     axios.get(apiUrl).then(handleResponse);
 
-    return <p>Loading forecast...</p>;
+    return (
+      <div className="loading">
+        <p>Loading forecast...</p>
+        <InfinitySpin width="100" color="#808080" />
+      </div>
+    );
   }
 }

@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo.js";
 import WeatherForecast from "./WeatherForecast.js";
+import { InfinitySpin } from "react-loader-spinner";
 
 export default function Weather(props) {
   let [weather, setWeather] = useState({ ready: false });
   let [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeather({
       ready: true,
       temperature: Math.round(response.data.temperature.current),
@@ -19,8 +19,7 @@ export default function Weather(props) {
       date: new Date(response.data.time * 1000),
       city: response.data.city,
       icon: response.data.condition.icon,
-      lat: response.data.coordinates.latitude,
-      lon: response.data.coordinates.longitude,
+      icon_url: response.data.condition.icon_url,
     });
   }
 
@@ -66,6 +65,11 @@ export default function Weather(props) {
     );
   } else {
     search();
-    return <p>Loading...</p>;
+    return (
+      <div className="loading">
+        <p>Loading...</p>;
+        <InfinitySpin width="100" color="#808080" />
+      </div>
+    );
   }
 }
